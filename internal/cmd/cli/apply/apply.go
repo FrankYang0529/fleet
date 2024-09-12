@@ -213,6 +213,10 @@ func Dir(ctx context.Context, client Getter, name, baseDir string, opts *Options
 	if opts == nil {
 		opts = &Options{}
 	}
+	logrus.WithFields(logrus.Fields{
+		"baseDir": baseDir,
+		"name":    name,
+	}).Info("thisistest")
 	// The bundleID is a valid helm release name, it's used as a default if a release name is not specified in helm options.
 	// It's also used to create the bundle name.
 	bundleID := filepath.Join(name, baseDir)
